@@ -1,0 +1,207 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+.page {
+    background-color: #eee;
+    padding: 30px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+@media (max-width:767px) {
+    .page {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+
+@media (min-width:768px) {
+    .page {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width:992px) {
+    .page {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.page .featured {
+    position: absolute;
+    width: 30px;
+    height: 15px;
+    background-color: #ea723d;
+    color: white;
+    font-size: 15px;
+    z-index: 2;
+    width: 75px;
+    padding: 11px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: -11px;
+}
+
+.page .featured::after {
+    content: "";
+    position: absolute;
+    border: 11px solid transparent;
+    border-left-color: #ea723d;
+    right: -22px;
+}
+
+.page .card {
+    position: relative;
+}
+
+.page .card:hover .img::before {
+    visibility: visible;
+}
+
+.page .card:hover .img::after {
+    display: block;
+}
+
+.page .card:not(:last-child)::before {
+    content: "Hot";
+    position: absolute;
+    background-color: #dd3333;
+    color: white;
+    width: 20px;
+    height: 13px;
+    padding: 5px 10px;
+    z-index: 2;
+    top: 38.5%;
+    left: 19px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.page .card .img {
+    width: 100%;
+    position: relative;
+}
+
+.page .card .img::before {
+    content: "View Property";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background: none;
+    border: 1px solid white;
+    width: 107px;
+    height: 40px;
+    z-index: 2;
+    padding: 13px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    visibility: hidden;
+}
+
+.page .card .img::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 99%;
+    background-color: rgb(0 188 212 / 65%);
+    z-index: 1;
+    left: 0;
+    top: -1px;
+    display: none;
+}
+
+.page .card .img img {
+    width: 100%;
+    position: relative;
+}
+
+.page .card .img .icons {
+    z-index: 2;
+    position: absolute;
+    bottom: 25px;
+    right: 25px;
+}
+
+.page .card .img .icons i {
+    margin-left: 6px;
+    font-size: 22px;
+}
+
+.page .card .container {
+    background-color: white;
+    padding: 25px;
+    transform: translateY(-3px);
+}
+
+.page .card .container h3 {
+    font-size: 15px;
+}
+
+.page .card .container .description {
+    color: #777;
+    margin: 20px 0;
+    line-height: 1.4;
+    font-size: 13px;
+}
+
+.page .card .container .rooms {
+    display: flex;
+    justify-content: space-between;
+    width: 200px;
+    margin-bottom: 20px;
+    position: relative;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.page .card .container .rooms::after {
+    content: "Sq Ft";
+    position: absolute;
+    top: 64%;
+    right: -64px;
+    font-size: 11px;
+    color: #999;
+}
+
+.page .card .container .rooms div {
+    display: flex;
+    flex-direction: column;
+}
+
+.page .card .container .rooms div i {
+    margin-top: 15px;
+    position: relative;
+    color: gray;
+    font-size: 16px;
+}
+
+.page .card .container .rooms div span {
+    position: absolute;
+    top: 64%;
+    margin-left: 30px;
+}
+
+.page .card .container .price {
+    font-size: 12px;
+}
+
+.page .card .container .price span {
+    display: block;
+    color: #2fa7a0;
+    font-size: 20px;
+    margin-top: 5px;
+}
